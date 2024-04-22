@@ -1,0 +1,199 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Details</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url(https://img.freepik.com/premium-photo/blur-background-modern-office-interior-design-contemporary-workspace-creative-business_31965-68135.jpg?size=626&ext=jpg&ga=GA1.1.1380696041.1699682608&semt=ais);
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+    .container {
+        background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
+        color: #fff; /* White text color */
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+        width: 400px;
+    }
+    h1 {
+        text-align: center;
+        color: #007bff; /* Blue heading color */
+    }
+    form {
+        margin-top: 20px;
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    input[type="text"], input[type="date"] {
+        width: calc(100% - 20px); /* Adjusted width */
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #444; /* Dark background for input */
+        color: #fff; /* White text color */
+        margin-bottom: 15px;
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+    input[type="text"]::placeholder {
+        color: #aaa; /* Placeholder color */
+    }
+    input[type="text"]:focus, input[type="date"]:focus {
+        outline: none;
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.6); /* Blue focus shadow */
+    }
+    input[type="submit"] {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        background-color: #007bff; /* Blue button color */
+        color: #fff; /* White text color */
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    input[type="submit"]:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Job Details</h1>
+    <form method="post">
+        <label for="jobtitle">Job Title:</label>
+        <input type="text" name="jobtitle" id="jobtitle" placeholder="Enter Job Title" required>
+        <label for="qualification">Qualification Needed:</label>
+        <input type="text" name="qualification" id="qualification" placeholder="Enter Qualification" required>
+        <label for="details">Details:</label>
+        <input type="text" name="details" id="details" placeholder="Enter Details" required>
+        <label for="lastdate">Last Date to Apply:</label>
+        <input type="date" name="lastdate" id="lastdate" required>
+        <label for="date">Job Uploaded Date:</label>
+        <input type="date" name="date" id="date" required>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+</body>
+</html>
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Job Details</title>
+     <style>
+         body {
+             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+             margin: 0;
+             padding: 0;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             min-height: 100vh;
+             background-color: #121212; /* Dark background color */
+             color: #fff; /* White text color */
+         }
+ 
+         .container {
+             background-color: rgba(17, 17, 17, 0.9); /* Semi-transparent dark background */
+             color: #fff; /* White text color */
+             padding: 30px;
+             border-radius: 15px;
+             box-shadow: 0 10px 20px rgba(184, 181, 181, 0.5); /* Subtle shadow */
+             width: 400px;
+             max-width: 90%;
+         }
+ 
+         h1 {
+             text-align: center;
+             color: #2196F3; /* Blue heading color */
+             margin-bottom: 30px;
+         }
+ 
+         form {
+             margin-top: 20px;
+         }
+ 
+         label {
+             display: block;
+             margin-bottom: 10px;
+             font-size: 18px;
+             color: #bbb; /* Light text color */
+         }
+ 
+         input[type="text"],
+         input[type="date"] {
+             width: calc(100% - 20px); /* Adjusted width */
+             padding: 12px;
+             border: none;
+             border-radius: 5px;
+             background-color: #333; /* Dark background for input */
+             color: #fff; /* White text color */
+             margin-bottom: 15px;
+             box-sizing: border-box; /* Include padding in width calculation */
+             font-size: 16px;
+         }
+ 
+         input[type="text"]::placeholder,
+         input[type="date"]::placeholder {
+             color: #aaa; /* Placeholder color */
+         }
+ 
+         input[type="text"]:focus,
+         input[type="date"]:focus {
+             outline: none;
+             box-shadow: 0 0 10px rgba(33, 150, 243, 0.6); /* Blue focus shadow */
+         }
+ 
+         input[type="submit"] {
+             width: 100%;
+             padding: 14px;
+             font-size: 18px;
+             background-color: #2196F3; /* Blue button color */
+             color: #fff; /* White text color */
+             border: none;
+             border-radius: 5px;
+             cursor: pointer;
+             transition: background-color 0.3s ease;
+         }
+ 
+         input[type="submit"]:hover {
+             background-color: #1976D2; /* Darker blue on hover */
+         }
+     </style>
+ </head>
+ <body>
+ <div class="container">
+     <h1>Job Details</h1>
+     <form method="post">
+         <label for="jobtitle">Job Title:</label>
+         <input type="text" name="jobtitle" id="jobtitle" placeholder="Enter Job Title" required>
+         <label for="qualification">Qualification Needed:</label>
+         <input type="text" name="qualification" id="qualification" placeholder="Enter Qualification" required>
+         <label for="details">Details:</label>
+         <input type="text" name="details" id="details" placeholder="Enter Details" required>
+         <label for="lastdate">Last Date to Apply:</label>
+         <input type="date" name="lastdate" id="lastdate" required>
+         <label for="date">Job Uploaded Date:</label>
+         <input type="date" name="date" id="date" required>
+         <input type="submit" value="Submit">
+     </form>
+ </div>
+ </body>
+ </html>
+ 

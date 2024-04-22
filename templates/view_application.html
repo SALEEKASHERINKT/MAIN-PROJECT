@@ -1,0 +1,275 @@
+<!-- 
+    
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212; /* Dark background color */
+            color: #fff; /* Light text color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .card {
+            background-color: #333; /* Dark background color for cards */
+            color: #fff; /* Light text color */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            margin-bottom: 20px;
+            width: calc(50% - 10px); /* Two cards per row */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .card-header {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px 0;
+            border-bottom: 1px solid #555; /* Border color */
+        }
+
+        th {
+            text-align: left;
+        }
+
+        .status {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .pending {
+            background-color: #FFA500; /* Orange color for pending status */
+        }
+
+        .attended {
+            background-color: #32CD32; /* Green color for attended status */
+        }
+
+        .rejected {
+            background-color: #FF0000; /* Red color for rejected status */
+        }
+
+        .action a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .action a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card-container">
+        {% for i in data['key'] %}
+        <div class="card">
+            <div class="card-header">
+                Application
+            </div>
+            <div class="card-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>From</th>
+                            <th>Contact</th>
+                            <th>Email</th>
+                            <th>Applied job</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ i['first_name'] }} {{ i['last_name'] }}</td>
+                            <td>{{ i['place'] }}</td>
+                            <td>{{ i['phone'] }}</td>
+                            <td>{{ i['email'] }}</td>
+                            <td>{{ i['title'] }}</td>
+                            <td>
+                                <span class="status {% if i['req_status'] == 'pending' %}pending{% elif i['req_status'] == 'exam attended' %}attended{% elif i['req_status'] == 'rejected' %}rejected{% endif %}">
+                                    {{ i['req_status'] }}
+                                </span>
+                            </td>
+                            <td class="action">
+                                {% if i['req_status'] == 'pending' %}
+                                    <a href="/company_accept_application?rid={{ i['request_id'] }}">Accept</a>
+                                    <a href="/company_reject_application?rid={{ i['request_id'] }}">Reject</a>
+                                {% elif i['req_status'] == 'exam attended' %}
+                                    <a href="/company_view_mark?rid={{ i['request_id'] }}">View Mark</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+  </div>
+</body>
+</html> -->
+
+
+<!-- <body>
+  <div class="container">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>From</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>Applied job</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data['key'] %}
+            <tr>
+                <td>{{ i['first_name'] }} {{ i['last_name'] }}</td>
+                <td>{{ i['place'] }}</td>
+                <td>{{ i['phone'] }}</td>
+                <td>{{ i['email'] }}</td>
+                <td>{{ i['title'] }}</td>
+                <td>
+                    <span class="status {% if i['req_status'] == 'pending' %}pending{% elif i['req_status'] == 'exam attended' %}attended{% elif i['req_status'] == 'rejected' %}rejected{% endif %}">
+                        {{ i['req_status'] }}
+                    </span>
+                </td>
+                <td class="action">
+                    {% if i['req_status'] == 'pending' %}
+                        <a href="/company_accept_application?rid={{ i['request_id'] }}">Accept</a>
+                        <a href="/company_reject_application?rid={{ i['request_id'] }}">Reject</a>
+                    {% elif i['req_status'] == 'exam attended' %}
+                        <a href="/company_view_mark?rid={{ i['request_id'] }}">View Mark</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  </div>
+</body>
+</html> -->
+
+{%include 'companyhomeheader.html'%}
+
+    <style>
+      
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #fff;
+            padding: 8px;
+        }
+        th {
+            background-color: #333;
+        }
+        td {
+            background-color: #000;
+            color: #fff;
+        }
+        .card {
+            background-color: #000;
+            color: #fff;
+            border: 2px solid #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .action a {
+            color: #0ff;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        .status.pending {
+            color: #f90;
+        }
+        .status.attended {
+            color: #0f0;
+        }
+        .status.rejected {
+            color: #f00;
+        }
+    </style>
+</head>
+<body>
+    <br><br><br><br><br>
+  <div class="container">
+    <div class="card">
+      <table>
+          <thead>
+              <tr>
+                  <th>Name</th>
+                  <th>From</th>
+                  <th>Contact</th>
+                  <th>Email</th>
+                  <th>Applied job</th>
+                  <th>Status</th>
+                  <th>Action</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for i in data['key'] %}
+              <tr>
+                  <td>{{ i['first_name'] }} {{ i['last_name'] }}</td>
+                  <td>{{ i['place'] }}</td>
+                  <td>{{ i['phone'] }}</td>
+                  <td>{{ i['email'] }}</td>
+                  <td>{{ i['title'] }}</td>
+                  <td>
+                      <span class="status {% if i['req_status'] == 'pending' %}pending{% elif i['req_status'] == 'exam attended' %}attended{% elif i['req_status'] == 'rejected' %}rejected{% endif %}">
+                          {{ i['req_status'] }}
+                      </span>
+                  </td>
+                  <td class="action">
+                      {% if i['req_status'] == 'pending' %}
+                          <a href="/company_accept_application?rid={{ i['request_id'] }}">Accept</a>
+                          <a href="/company_reject_application?rid={{ i['request_id'] }}">Reject</a>
+                      {% elif i['req_status'] == 'exam attended' %}
+                          <a href="/company_view_mark?rid={{ i['request_id'] }}">View Mark</a>
+                      {% endif %}
+                  </td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+    </div>
+  </div>
+  {% include 'footer.html' %}

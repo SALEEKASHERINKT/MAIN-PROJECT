@@ -1,0 +1,58 @@
+{% include 'homeheader.html' %}
+<body>
+    <h1>Job Listings</h1>
+    {% if jobs %}
+        <div class="job-cards">
+            {% for job in jobs %}
+                <div class="job-card">
+                    <h2>{{ job['job-title'] }}</h2>
+                    <p>Company: {{ job['company'] }}</p>
+                    <p>Level: {{ job['level'] }}</p>
+                    <p>Description: {{ job['job-description'] }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No job listings found.</p>
+    {% endif %}
+
+    <style>
+        /* Style for job listings */
+        h1 {
+            color: #333;
+        }
+
+        .job-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .job-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            width: 100%; /* Display one job per row */
+        }
+
+        h2 {
+            color: #007bff;
+            margin-top: 0;
+        }
+
+        p {
+            margin: 0;
+            color: #666;
+        }
+
+        /* Optional: Add hover effect */
+        .job-card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</body>
+{% include 'footer.html' %}

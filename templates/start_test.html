@@ -1,0 +1,113 @@
+<!-- 
+
+<center><h1>QUESTIONS</h1></center>
+{%if data['view']%}
+<center>
+    
+    <form method="post" style="margin: 20px;">
+        <table style="width: 50%; border-collapse: collapse;">
+
+            {% for row in data['view'] %}
+            <tr style="border-bottom: 1px solid #ddd;">
+                <td colspan="3" style="padding: 10px; font-weight: bold;">{{ loop.index }}. {{ row['question'] }}</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px;">
+                    <input type="radio" name="ans{{ loop.index }}" value="{{ row['option1'] }}"> {{ row['option1'] }} &nbsp;
+                    <input type="radio" name="ans{{ loop.index }}" value="{{ row['option2'] }}"> {{ row['option2'] }} &nbsp;
+                    <input type="radio" name="ans{{ loop.index }}" value="{{ row['option3'] }}"> {{ row['option3'] }} &nbsp;
+                    <input type="radio" name="ans{{ loop.index }}" value="{{ row['option4'] }}"> {{ row['option3'] }} &nbsp;
+
+                </td>  
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="3" style="text-align: center; padding: 20px;">
+                    <button onclick="stopCamera()" style="padding: 10px 20px; background-color: #007bff; color: #fff; border: none; cursor: pointer; border-radius: 5px;">
+                        <input type="submit" name="submit" value="Submit" style="background-color: #007bff; color: #fff; border: none; cursor: pointer; padding: 10px 20px; border-radius: 5px;">
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    
+</center>
+{%else%}
+<center><h2>No data</h2></center>
+{%endif%}
+<script>
+    function stopCamera() {
+        fetch('/stop_camera')
+            .then(response => {
+                if (response.ok) {
+                    console.log('Camera stopped');
+                    document.getElementById('video_feed').src = ''; // Clear the video feed
+                } else {
+                    console.error('Failed to stop camera');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+</script> -->
+
+<center>
+    <h1 style="margin-top: 20px;">QUESTIONS</h1>
+</center>
+
+{% if data['view'] %}
+<center>
+    <form method="post" style="margin: 20px;">
+        <table style="width: 70%; border-collapse: collapse; background-color: #333; color: #fff;">
+            {% for row in data['view'] %}
+            <tr style="border-bottom: 1px solid #ddd;">
+                <td colspan="4" style="padding: 15px; font-weight: bold; font-size: 18px;">{{ loop.index }}. {{ row['question'] }}</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px;">
+                    <input type="radio" name="ans{{ loop.index }}" value="{{ row['option1'] }}" id="opt1_{{ loop.index }}">
+                    <label for="opt1_{{ loop.index }}">{{ row['option1'] }}</label>
+                </td>
+                <td style="padding: 10px;">
+                    <input type="radio" name="ans{{ loop.index }}" value="{{ row['option2'] }}" id="opt2_{{ loop.index }}">
+                    <label for="opt2_{{ loop.index }}">{{ row['option2'] }}</label>
+                </td>
+                <td style="padding: 10px;">
+                    <input type="radio" name="ans{{ loop.index }}" value="{{ row['option3'] }}" id="opt3_{{ loop.index }}">
+                    <label for="opt3_{{ loop.index }}">{{ row['option3'] }}</label>
+                </td>
+                <td style="padding: 10px;">
+                    <input type="radio" name="ans{{ loop.index }}" value="{{ row['option4'] }}" id="opt4_{{ loop.index }}">
+                    <label for="opt4_{{ loop.index }}">{{ row['option4'] }}</label>
+                </td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="4" style="text-align: center; padding: 20px;">
+                    <button onclick="stopCamera()" style="padding: 10px 20px; background-color: #007bff; color: #fff; border: none; cursor: pointer; border-radius: 5px;">
+                       <input type="submit" name="submit" value="Submit" >
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</center>
+{% else %}
+<center>
+    <h2>No data</h2>
+</center>
+{% endif %}
+
+<script>
+    function stopCamera() {
+        fetch('/stop_camera')
+            .then(response => {
+                if (response.ok) {
+                    console.log('Camera stopped');
+                    document.getElementById('video_feed').src = ''; // Clear the video feed
+                } else {
+                    console.error('Failed to stop camera');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+</script>

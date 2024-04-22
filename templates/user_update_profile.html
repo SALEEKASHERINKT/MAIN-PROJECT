@@ -1,0 +1,444 @@
+<!-- <center>
+  <div class="wrapper">
+    <form align="center" class="form" method="post"   style="width: 500px;">
+    <h1>Register</h1>
+    {% if data['key'] %}
+    <table>
+      <tr>
+        <th>First name:</th>
+      <td><input type="text" class="name" placeholder="First Name" name="fname" value="{{data['key'][0]['first_name']}}"></td>
+      </tr>
+
+      <tr>
+      <th>Last name :</th>
+      <td><input type="text" class="name" placeholder="Last Name" name="lname" value="{{data['key'][0]['last_name']}}"></td>
+      </tr>
+  
+      <tr>
+      <th>Address</th>
+      <td><textarea name="address"  cols="40" rows="3" placeholder="Address" class="email">{{data['key'][0]['address']}}</textarea></td>
+      </tr>
+      
+      <tr>
+        <th>Place</th>
+        <td><input type="text" class="name" placeholder="Place" name="place" value="{{data['key'][0]['place']}}"></td>
+      </tr>
+      
+      <tr>
+        <th>Pincode</th>
+        <td><input type="text" class="name" placeholder="Pincode" name="pincode" value="{{data['key'][0]['pincode']}}"></td>      
+      </tr>
+
+      <tr>
+        <th>Contact Number</th>
+      <td><input type="text" class="name" placeholder="Contact Number" name="phn" value="{{data['key'][0]['phone']}}"></td>
+      </tr>
+        
+      <tr>
+        <th>Gender</th>
+          <td>{%if data['key'][0]['gender']=='Female'%}
+          <input type="radio" name="gender" value="Male"  >Male
+          <input type="radio" name="gender" value="Female"  checked> Female
+          <input type="radio" name="gender" value="Other" > Other
+          {%elif data['key'][0]['gender']=='Male'%}
+          <input type="radio" name="gender" value="Male"  checked>Male
+          <input type="radio" name="gender" value="Female" > Female
+          <input type="radio" name="gender" value="Other" > Other
+          {%else%}
+          <input type="radio" name="gender" value="Male"  >Male
+          <input type="radio" name="gender" value="Female" > Female
+          <input type="radio" name="gender" value="Other" checked> Other
+          {%endif%}
+        </td>
+        </tr>
+
+        <tr>
+          <th>Email</th>
+      <td><input type="email" class="email" placeholder="Email" name="email" value="{{data['key'][0]['email']}}"></td>
+    </tr>
+
+    <tr>
+      <th>Skills</th>
+      <td><input type="text" class="name" placeholder="Skills" name="skills" value="{{data['key'][0]['skills']}}"></td>
+    </tr>
+  
+      <tr>
+        <th>Experience</th>
+        <td><input type="text" class="name" placeholder="Work Experience" name="work_experience" value="{{data['key'][0]['work_experience']}}"></td>
+    </tr>
+     
+    <tr>
+      <th>Company</th>
+       <td><input type="text" class="name" placeholder="Company" name="company_name" value="{{data['key'][0]['company_name']}}"></td>
+    </tr>
+
+    <tr>
+      <th>Job Role</th>
+      <td>
+      <input type="text" class="name" placeholder="Job Role" name="job_role" value="{{data['key'][0]['job_role']}}" >
+    </td>
+    </tr>
+
+    <tr>
+      <th>Current ctc</th>
+      <td><input type="text" class="name" placeholder="Current ctc" name="current_ctc" value="{{data['key'][0]['current_ctc']}}"></td>
+    </tr>
+  
+    <tr>
+      <th>Expected ctc</th>
+      <td><input type="text" class="name" placeholder="Expected ctc" name="expected_ctc" value="{{data['key'][0]['expected_ctc']}}"></td>
+    </tr>  
+  
+    <tr>
+      <th>Suggested role</th>
+      <td><input type="text" class="name" placeholder="Suggested role" name="suggested_role" value="{{data['key'][0]['suggested_role']}}"></td>
+    </tr>
+  
+  
+     <tr>
+     <td> <input type="submit" class="submit" value="update" name="submit"></td>
+    </tr> 
+    </table>
+    </form>
+  
+  
+  </div>
+  
+  
+  {% endif %}
+</center>
+
+
+<script>
+    $(".name").focus(function(){
+  $(".name-help").slideDown(500);
+}).blur(function(){
+  $(".name-help").slideUp(500);
+});
+
+$(".email").focus(function(){
+  $(".email-help").slideDown(500);
+}).blur(function(){
+  $(".email-help").slideUp(500);
+});
+
+
+
+</script>
+
+
+
+<style>
+    body { 
+  background-color: black;
+  color: white;
+}
+
+/*sass variables used*/
+/* $full:100%;
+$auto:0 auto;
+$align:center; */
+
+@mixin disable{
+  outline:none;
+  border:none;
+}
+
+@mixin easeme{
+  -webkit-transition:1s ease;
+  -moz-transition:1s ease;
+  -o-transition:1s ease;
+  -ms-transition:1s ease;
+  transition:1s ease;
+}
+
+/*site container*/
+.wrapper{
+  width:420px;
+  margin:auto;
+}
+
+h1{
+  text-align:align;
+  padding:30px 0px 0px 0px;
+  font:25px Oswald;
+  color:#FFF;
+  text-transform:uppercase;
+  text-shadow:#000 0px 1px 5px;
+  margin:0px;
+}
+
+p{
+  font:13px Open Sans;
+  color:#6E6E6E;
+  text-shadow:#000 0px 1px 5px;
+  margin-bottom:30px;
+}
+
+.form{
+  width:300px;
+  margin-top: 120px;
+}
+
+input[type="text"],input[type="email"]{
+  width:98%;
+  padding:15px 0px 15px 8px;
+  border-radius:5px;
+  box-shadow:inset 4px 6px 10px -4px rgba(0,0,0,0.3), 0 1px 1px -1px rgba(255,255,255,0.3);
+	background:rgba(0,0,0,0.2);
+  /* @include disable; */
+  border:1px solid rgba(0,0,0,1);
+  margin-bottom:10px;
+  color:#6E6E6E;
+  text-shadow:#000 0px 1px 5px;
+}
+textarea{
+  width:98%;
+  padding:15px 0px 15px 8px;
+  border-radius:5px;
+  box-shadow:inset 4px 6px 10px -4px rgba(0,0,0,0.3), 0 1px 1px -1px rgba(255,255,255,0.3);
+	background:rgba(0,0,0,0.2);
+  /* @include disable; */
+  border:1px solid rgba(0,0,0,1);
+  margin-bottom:10px;
+  color:#6E6E6E;
+  text-shadow:#000 0px 1px 5px;
+}
+
+
+
+input[type="submit"]{
+  width:100%;
+  padding:15px;
+  border-radius:5px;
+  /* @include disable; */
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#28D2DE), to(#1A878F));
+  background-image: -webkit-linear-gradient(#28D2DE 0%, #1A878F 100%);
+  background-image: -moz-linear-gradient(#28D2DE 0%, #1A878F 100%);
+  background-image: -o-linear-gradient(#28D2DE 0%, #1A878F 100%);
+  background-image: linear-gradient(#28D2DE 0%, #1A878F 100%);
+  font:14px Oswald;
+  color:#FFF;
+  text-transform:uppercase;
+  text-shadow:#000 0px 1px 5px;
+  border:1px solid #000;
+  opacity:0.7;
+	-webkit-box-shadow: 0 8px 6px -6px rgba(0,0,0,0.7);
+  -moz-box-shadow: 0 8px 6px -6px rgba(0,0,0,0.7);
+	box-shadow: 0 8px 6px -6px rgba(0,0,0,0.7);
+  border-top:1px solid rgba(255,255,255,0.8)!important;
+  -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(50%, transparent), to(rgba(255,255,255,0.2)));
+}
+
+input:focus{
+  box-shadow:inset 4px 6px 10px -4px rgba(0,0,0,0.7), 0 1px 1px -1px rgba(255,255,255,0.3);
+  background:rgba(0,0,0,0.3);
+  /* @include easeme; */
+}
+
+input[type="submit"]:hover{
+  opacity:1;
+  cursor:pointer;
+}
+
+.name-help,.email-help{
+  display:none;
+  padding:0px;
+  margin:0px 0px 15px 0px;
+}
+
+.optimize{
+  position:fixed;
+  right:3%;
+  top:0px;
+}
+</style> -->
+
+{% include 'userhomeheader.html' %}
+
+<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+<center>
+  <div class="wrapper">
+    <form align="center" class="form" method="post" style="max-width: 500px;">
+      <h1>Register</h1>
+      {% if data['key'] %}
+      <table>
+        <tr>
+          <th>First name:</th>
+          <td><input type="text" class="name" placeholder="First Name" name="fname" value="{{data['key'][0]['first_name']}}"></td>
+        </tr>
+
+        <tr>
+          <th>Last name:</th>
+          <td><input type="text" class="name" placeholder="Last Name" name="lname" value="{{data['key'][0]['last_name']}}"></td>
+        </tr>
+
+        <tr>
+          <th>Address:</th>
+          <td><textarea name="address" cols="40" rows="3" placeholder="Address" class="email">{{data['key'][0]['address']}}</textarea></td>
+        </tr>
+      
+        <tr>
+          <th>Place:</th>
+          <td><input type="text" class="name" placeholder="Place" name="place" value="{{data['key'][0]['place']}}"></td>
+        </tr>
+      
+        <tr>
+          <th>Pincode:</th>
+          <td><input type="text" class="name" placeholder="Pincode" name="pincode" value="{{data['key'][0]['pincode']}}"></td>      
+        </tr>
+
+        <tr>
+          <th>Contact Number:</th>
+          <td><input type="text" class="name" placeholder="Contact Number" name="phn" value="{{data['key'][0]['phone']}}"></td>
+        </tr>
+        
+        <tr>
+          <th>Gender:</th>
+          <td>
+            {% if data['key'][0]['gender'] == 'Female' %}
+              <input type="radio" name="gender" value="Male"> Male
+              <input type="radio" name="gender" value="Female" checked> Female
+              <input type="radio" name="gender" value="Other"> Other
+            {% elif data['key'][0]['gender'] == 'Male' %}
+              <input type="radio" name="gender" value="Male" checked> Male
+              <input type="radio" name="gender" value="Female"> Female
+              <input type="radio" name="gender" value="Other"> Other
+            {% else %}
+              <input type="radio" name="gender" value="Male"> Male
+              <input type="radio" name="gender" value="Female"> Female
+              <input type="radio" name="gender" value="Other" checked> Other
+            {% endif %}
+          </td>
+        </tr>
+        <tr>
+          <th>Email</th>
+      <td><input type="email" class="email" placeholder="Email" name="email" value="{{data['key'][0]['email']}}"></td>
+    </tr>
+
+    <tr>
+      <th>Skills</th>
+      <td><input type="text" class="name" placeholder="Skills" name="skills" value="{{data['key'][0]['skills']}}"></td>
+    </tr>
+  
+      <tr>
+        <th>Experience</th>
+        <td><input type="text" class="name" placeholder="Work Experience" name="work_experience" value="{{data['key'][0]['work_experience']}}"></td>
+    </tr>
+     
+    <tr>
+      <th>Company</th>
+       <td><input type="text" class="name" placeholder="Company" name="company_name" value="{{data['key'][0]['company_name']}}"></td>
+    </tr>
+
+    <tr>
+      <th>Job Role</th>
+      <td>
+      <input type="text" class="name" placeholder="Job Role" name="job_role" value="{{data['key'][0]['job_role']}}" >
+    </td>
+    </tr>
+
+    <tr>
+      <th>Current ctc</th>
+      <td><input type="text" class="name" placeholder="Current ctc" name="current_ctc" value="{{data['key'][0]['current_ctc']}}"></td>
+    </tr>
+  
+    <tr>
+      <th>Expected ctc</th>
+      <td><input type="text" class="name" placeholder="Expected ctc" name="expected_ctc" value="{{data['key'][0]['expected_ctc']}}"></td>
+    </tr>  
+  
+    <tr>
+      <th>Suggested role</th>
+      <td><input type="text" class="name" placeholder="Suggested role" name="suggested_role" value="{{data['key'][0]['suggested_role']}}"></td>
+    </tr>
+  
+
+        <tr>
+          <td colspan="2"><input type="submit" class="submit" value="Update" name="submit"></td>
+        </tr> 
+      </table>
+    </form>
+  </div>
+  {% endif %}
+</center>
+
+<script>
+  $(".name").focus(function(){
+    $(".name-help").slideDown(500);
+  }).blur(function(){
+    $(".name-help").slideUp(500);
+  });
+
+  $(".email").focus(function(){
+    $(".email-help").slideDown(500);
+  }).blur(function(){
+    $(".email-help").slideUp(500);
+  });
+</script>
+
+<style>
+ 
+
+  .wrapper {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+  }
+
+  .form {
+    background-color: #333;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 500px;
+    margin: 100px auto;
+  }
+
+  h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #555;
+    color: #fff;
+    box-sizing: border-box;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #4caf50; /* Green */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+
+  table {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+</style>
+{% include 'footer.html' %}

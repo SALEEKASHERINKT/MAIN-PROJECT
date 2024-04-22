@@ -1,0 +1,16 @@
+{%include 'homeheader.html'%}
+
+    <center>
+        <h1>Job Scraper</h1>
+    <form action="{{ url_for('public.scrape_jobs') }}" method="post" style="width: 600px;">
+        <label for="keyword">Keyword:</label>
+        <input type="text" id="keyword" name="keyword" class="form-control" required>
+        <br>
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" class="form-control" required>
+        <br>
+        <input type="submit" class="btn btn-info" value="Scrape Jobs">
+    </form>
+    </center>
+    <br><br><br><br><br>
+    {%include 'footer.html'%}

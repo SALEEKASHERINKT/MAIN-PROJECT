@@ -1,0 +1,69 @@
+{% include 'adminhomeheader.html'%}
+<br><br><br><br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color: #0b142a;
+        }
+        h1 {
+            color: #c1c1ca;
+            text-shadow: 2px 2px #595959;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #c1c1ca;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #6d7386;
+            color: rgb(0, 0, 0);
+        }
+        tr{
+            background-color: #62646b;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <center><br>
+    <h1 >Jobs Vacancies</h1><br>
+    <table border="2" cellspacing="2" >
+        <thead>
+        <tr style="border-style: groove; border-color: black;">
+            <th style=" border-color: black; ">Job Title</th>
+            <th style=" border-color: black;">Qualification needed </th>
+            <th style="border-style: groove; border-color: black;">Details</th>
+            <th style="border-style: groove; border-color: black;">Last_date</th>
+            <th style="border-style: groove; border-color: black;">Date</th>
+            <th style="border-style: groove; border-color: black;">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in data['key']%}
+        <tr>
+            <td align="center" style="border-style: groove; border-color: black;"> {{i['title']}} </td>
+            <td align="center" style="border-style: groove; border-color: black;"> {{i['qualification']}} </td>
+            <td align="center" style="border-style: groove; border-color: black;"> {{i['details']}} </td>
+            <td align="center" style="border-style: groove; border-color: black;"> {{i['last_date']}} </td>
+            <td align="center" style="border-style: groove; border-color: black;"> {{i['date']}} </td>
+            <td align="center" style="border-style: groove; border-color: black;"> {{i['status']}} </td>
+        </tr>
+        {%endfor%}
+    </tbody>
+    </table>
+</center>
+</body>
+</html>
+{%include 'footer.html'%}

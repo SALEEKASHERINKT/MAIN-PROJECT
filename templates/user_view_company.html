@@ -1,0 +1,59 @@
+
+
+<!-- {%include 'userhomeheader.html'%} 
+<!-- <div id="contain" >
+  {% for i in data['key']%}
+
+    <div id="table">
+      <div class="row">
+        <div class="col-md-2">
+
+
+      <div class="head yellow">{{i['company_name']}}</div>
+  
+      <div class="offer">
+        <ul>
+          <li><strong>Place:</strong>{{i['place']}}</li>
+          <li><strong>Contact:</strong>{{i['phone']}}</li>
+          <li><strong>Email:</strong>{{i['email']}}</li>
+          <li><strong>Established Year:</strong>{{i['est_year']}}</li>
+        </ul>
+      </div>
+
+      <div class="cta"><a href="/user_view_job?id={{i['company_id']}}">jobs</a></div>
+    </div>
+</div>
+</div>
+{%endfor%}
+
+</div> -->
+
+
+
+  <div id="contain">
+    {% for i in data['key'] %}
+      <div id="table">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="card bg-dark text-white mb-4">
+              <div class="card-header">
+                <h5 class="mb-0">{{ i['company_name'] }}</h5>
+              </div>
+              <div class="card-body">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item bg-dark text-white"><strong>Place:</strong> {{ i['place'] }}</li>
+                  <li class="list-group-item bg-dark text-white"><strong>Contact:</strong> {{ i['phone'] }}</li>
+                  <li class="list-group-item bg-dark text-white"><strong>Email:</strong> {{ i['email'] }}</li>
+                  <li class="list-group-item bg-dark text-white"><strong>Established Year:</strong> {{ i['est_year'] }}</li>
+                </ul>
+              </div>
+              <div class="card-footer bg-dark">
+                <a href="/user_view_job?id={{ i['company_id'] }}" class="btn btn-primary btn-block">View Jobs</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  

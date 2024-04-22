@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience Type</title>
+    <style>
+        body {
+            background-color: #1f1f1f; /* Dark background color */
+            color: #fff; /* Light text color */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font style */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            margin-top: 20px;
+            color: #fff; /* White text color */
+            text-transform: uppercase; /* Uppercase text */
+            letter-spacing: 2px; /* Increased letter spacing */
+        }
+        form {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #333; /* Dark form background color */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #333; /* Dark table background color */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 14px; /* Smaller font size */
+        }
+        th, td {
+            border: 1px solid #fff; /* White border */
+            padding: 8px; /* Smaller padding */
+            text-align: center;
+        }
+        th {
+            background-color: #555; /* Darker table header color */
+            text-transform: uppercase; /* Uppercase text */
+        }
+        input[type="text"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #444; /* Dark input background color */
+            color: #fff; /* Light text color */
+            width: calc(100% - 22px);
+            margin: 6px 0;
+            box-sizing: border-box;
+            font-size: 14px; /* Smaller font size */
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff; /* Primary button color */
+            color: #fff; /* Light text color */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Darker primary button color on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Experience Type</h1>
+    <form method="post">
+        <label for="experience_type">Experience Type</label><br>
+        <input type="text" name="experience_type" id="experience_type" placeholder="Enter Experience Type"><br>
+        <label for="year">Year</label><br>
+        <input type="text" name="year" id="year" placeholder="Enter Year"><br>
+        <input type="submit" name="submit" value="Submit">
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Sl. No</th>
+                <th>Experience Type</th>
+                <th>Year</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data['key'] %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ i['experience_type'] }}</td>
+                <td>{{ i['year'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

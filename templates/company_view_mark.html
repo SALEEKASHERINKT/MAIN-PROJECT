@@ -1,0 +1,135 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #fff;
+            padding: 8px;
+        }
+        th {
+            background-color: #333;
+        }
+        td {
+            background-color: #000;
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <table>
+        <thead>
+            <tr>
+                <th>Mark Awarded</th>
+                <th>Grand Total</th>
+                <th>Date</th>
+                <th>Action</th>
+                <th>Malpractice</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data['view'] %}
+            <tr>
+                <td>{{ i['mark_awarded'] }}</td>
+                <td>{{ i['grand_total'] }}</td>
+                <td>{{ i['date'] }}</td>
+                <td>
+                    <a href="/company_proceed_selection?rid={{ i['request_id'] }}">Proceed for Selection</a> |
+                    <a href="/company_reject_selection?rid={{ i['request_id'] }}">Reject</a>
+                </td>
+                <td>
+                    <a href="/com_view_malpractice?id={{ i['user_id'] }}">Malpractice</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html> -->
+{%include 'companyhomeheader.html'%}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        
+        .card {
+            background-color: #918d8d;
+            border: 2px solid #fff;
+            padding: 20px;
+        }
+        table {
+            background-color: #e9e3e3;
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+     
+      
+        .proceed-link {
+            color: #2cc65b;
+            text-decoration: none;
+        }
+        .reject-link {
+            color: #f00;
+            text-decoration: none;
+        }
+        .malpractice-link {
+            color: #0ff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <br><br><br><br>
+
+<div class="container">
+    <div class="card">
+        <br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Mark Awarded</th>
+                    <th>Grand Total</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                    <th>Malpractice</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in data['view'] %}
+                <tr>
+                    <td>{{ i['mark_awarded'] }}</td>
+                    <td>{{ i['grand_total'] }}</td>
+                    <td>{{ i['date'] }}</td>
+                    <td>
+                        <a href="/company_proceed_selection?rid={{ i['request_id'] }}" class="proceed-link">Proceed for Selection</a> |
+                        <a href="/company_reject_selection?rid={{ i['request_id'] }}" class="reject-link">Reject</a>
+                    </td>
+                    <td>
+                        <a href="/com_view_malpractice?id={{ i['user_id'] }}" class="malpractice-link">Malpractice</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{%include 'footer.html'%}
+
+

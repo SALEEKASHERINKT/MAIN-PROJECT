@@ -1,0 +1,22 @@
+{% include 'userhomeheader.html' %}
+
+    <table>
+        <tr>
+            <th>Feedback_id </th>
+            <th>User_id</th>
+            <th>Feedback</th>
+            <th>Date</th>
+        </tr>
+        {% for i in data['key']%}
+        <tr>
+            <td align="center"> {{i['feedback_id']}} </td>
+            <td align="center"> {{i['feedback']}} </td>
+            <td align="center"> {{i['date']}} </td>
+        </tr>
+        {%endfor%}
+    </table>
+ 
+    
+    {% include 'footer.html' %}
+
+

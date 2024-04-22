@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-image: url(https://t4.ftcdn.net/jpg/06/58/79/25/240_F_658792587_jARtRRyNANhsDT1CFWamKvEEhH1ugYeI.jpg); background-repeat: no-repeat; background-size: cover ;">
+    
+    <br><br><br><br><br>
+    <center>
+        <h1>User Feedbacks</h1>
+        <table border=".5">
+            <tr>
+                <th>Feedback</th>
+                <th>Date</th>
+            </tr>
+            {% for i in data['key']%}
+            <tr>
+                <td align="center"> {{i['feedback']}} </td>
+                <td align="center"> {{i['date']}} </td>
+            </tr>
+            {%endfor%}
+        </table>
+    </center>
+</body>
+</html>

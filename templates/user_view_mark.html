@@ -1,0 +1,66 @@
+<!-- <table>
+    <tr>
+        <th>mark awarded</th>
+        <th>Grand Total</th>
+        <th>date</th>
+    </tr>
+    {%for i in data['key']%}
+    <tr>
+        <td>{{i['mark_awarded']}}</td>
+        <td>{{i['grand_total']}}</td>
+        <td>{{i['date']}}</td>
+    </tr>
+    {%endfor%}
+</table> -->
+
+{%include 'userhomeheader.html'%}
+
+    <style>
+     
+        .card {
+            background-color: #333;
+            border-radius: 8px;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+        .card table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .card th, .card td {
+            padding: 10px;
+            border-bottom: 1px solid #555;
+            text-align: left;
+            color: #fff;
+        }
+        .card th {
+            background-color: #111;
+        }
+        .card tr:nth-child(even) {
+            background-color: #444;
+        }
+        .card tr:hover {
+            background-color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <table>
+            <tr>
+                <th>Mark Awarded</th>
+                <th>Grand Total</th>
+                <th>Date</th>
+            </tr>
+            {% for i in data['key'] %}
+            <tr>
+                <td>{{ i['mark_awarded'] }}</td>
+                <td>{{ i['grand_total'] }}</td>
+                <td>{{ i['date'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {%include 'footer.html'%}
+

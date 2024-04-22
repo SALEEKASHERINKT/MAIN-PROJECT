@@ -1,0 +1,76 @@
+{% include 'adminhomeheader.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applications</title>
+    <style>
+        body {
+            
+            background-color: #222; /* Dark background color */
+            color: #fff; /* Light text color */
+            font-family: Arial, sans-serif;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .card {
+            background: linear-gradient(45deg, #333, #555); /* Gradient background */
+            color: #fff; /* Light text color */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+            margin: 10px;
+            padding: 20px;
+            width: 300px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px); /* Hover effect */
+        }
+        .card h2 {
+            margin-bottom: 10px;
+        }
+        .card p {
+            margin-bottom: 5px;
+        }
+        .btn {
+            background-color: #007bff; /* Blue button color */
+            color: #fff; /* White text color */
+            border: none;
+            border-radius: 5px;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3; /* Darker blue button color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        {% for i in data['key'] %}
+        <div class="card">
+            <h2>{{ i['first_name'] }} {{ i['last_name'] }}</h2>
+            <p><strong>From:</strong> {{ i['place'] }}</p>
+            <p><strong>Contact:</strong> {{ i['phone'] }}</p>
+            <p><strong>Email:</strong> {{ i['email'] }}</p>
+            <p><strong>Company:</strong> {{ i['company_name'] }}</p>
+            <p><strong>Applied Job:</strong> {{ i['title'] }}</p>
+            <p><strong>Status:</strong> {{ i['req_status'] }}</p>
+            <!-- {% if i['req_status'] == 'pending' %}
+            <a href="/company_accept_application?rid={{ i['request_id'] }}" class="btn">Accept</a>
+            <a href="/company_reject_application?rid={{ i['request_id'] }}" class="btn">Reject</a>
+            {% endif %} -->
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+{%include 'footer.html'%}

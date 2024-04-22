@@ -1,0 +1,79 @@
+
+{%include 'userhomeheader.html'%}
+<body >
+ 
+    
+<br><br><br><br>
+<center>
+  <form method="post" style="background-color: bisque;width: 500px; height: 400px;padding-top: 100px;">
+    <h1>Search for Jobs</h1>
+    <div>
+      <label for="experience">Select experience type:</label>
+      <select class="form-control" name="etype" id="experience" style="width: 300px;">
+        {% for i in data['key'] %}
+        <option  value="{{ i['experience_type_id'] }}">{{ i['experience_type'] }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div>
+     <br> <label for="job_role">Select job role:</label>
+      <select class="form-control" name="jrole" id="job_role" style="width: 300px;">
+        {% for i in data['job'] %}
+        <option  value="{{ i['job_role_id'] }}">{{ i['job_role_title'] }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <br><button type="submit" name="submit" class="btn btn-info">Submit</button>
+  </form>
+</center>
+
+  </div>
+</div>
+</body>
+
+
+<!-- <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1e1e1e; /* Dark background color */
+      color: #fff; /* White text color */
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 100px auto;
+      background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* White shadow */
+    }
+    .search-box {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .search-box select {
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #333; /* Dark background color for dropdown */
+      color: #fff; /* White text color */
+      margin-right: 10px;
+    }
+    .search-box button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    /* Style the labels */
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+  </style> -->
+  {%include 'footer.html'%}

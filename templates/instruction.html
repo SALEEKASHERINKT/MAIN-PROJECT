@@ -1,0 +1,114 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructions for attending interview</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Moving your head from straight position for more than 5 seconds will be considered as malpractice.</td>
+            {% for i in data['key'] %}
+            <tr>
+                <td>{{ i['title'] }}</td>
+                <td>{{ i['req_status'] }}</td>
+                {% if i['req_status'] == 'accept' %}
+            <td>
+                <a href="/start_test?rid={{i['request_id']}}&cid={{i['company_id']}}&jid={{i['job_id']}}&aid={{i['answer_id']}}">start interview</a>
+            </td>
+            {% else %}
+                        <td>No action available</td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tr>
+    </table>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructions for attending interview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212; /* Dark background color */
+            color: #fff; /* Light text color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #555; /* Border color */
+            text-align: left;
+        }
+
+        th {
+            background-color: #333; /* Dark background color for header */
+            color: #fff; /* Light text color */
+        }
+
+        tr:nth-child(even) {
+            background-color: #444; /* Dark background color for even rows */
+        }
+
+        tr:hover {
+            background-color: #666; /* Darker background color on hover */
+        }
+
+        a {
+            color: #fff; /* White text color for links */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Instructions</th>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Moving your head from straight position for more than 5 seconds will be considered as malpractice.</td>
+                {% for i in data['key'] %}
+                <tr>
+                    <td>{{ i['title'] }}</td>
+                    <td>{{ i['req_status'] }}</td>
+                    <td>
+                        {% if i['req_status'] == 'accept' %}
+                            <a href="/start_test?rid={{i['request_id']}}&cid={{i['company_id']}}&jid={{i['job_id']}}&aid={{i['answer_id']}}">Start Interview</a>
+                        {% else %}
+                            No action available
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,227 @@
+    
+    {% include 'homeheader.html' %}
+
+
+									
+                  
+    <form class="form" method="post" style="margin-left: 400px;" enctype="multipart/form-data">
+      <h1>Register For An Account</h1>
+      <input type="file" class="name" placeholder="Please add your Company License image" name="image">
+      <div>
+        <p class="name-help">Please add the License image.</p>
+      </div>
+  
+      <input type="text" class="name" placeholder="Company Name" name="cname">
+      <div>
+        <p class="name-help">Please enter Company name.</p>
+      </div>
+  
+      <!-- <div class="location-inputs">
+        <div class="form-group">
+          <label for="latitude">Latitude</label>
+          <input type="text" name="latitude" id="slati" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="longitude">Longitude</label>
+          <input type="text" name="longitude" id="elongi" required class="form-control">
+        </div>
+        <div class="form-group">
+          <button onclick="myFunction();" class="btn btn-primary">View Map</button>
+        </div>
+      </div> -->
+  
+      <input type="text" class="name" placeholder="Place" name="plc">
+      <div>
+        <p class="name-help">Please enter your place.</p>
+      </div>
+  
+      <input type="text" class="name" placeholder="Contact Number" name="phone">
+      <div>
+        <p class="name-help">Please enter your contact number.</p>
+      </div>
+  
+      <input type="text" class="name" placeholder="Website" name="website">
+      <div>
+        <p class="name-help">Please add your website link.</p>
+      </div>
+  
+      <input type="email" class="email" placeholder="Email" name="e_mail">
+      <div>
+        <p class="email-help">Please enter your current email address.</p>
+      </div>
+  
+      <input type="text" class="name" placeholder="Established Year" name="est_yr">
+      <div>
+        <p class="name-help">Please enter established year.</p>
+      </div>
+  
+      <input type="text" class="name" placeholder="Username" name="uname">
+      <div>
+        <p class="name-help">Please enter an username.</p>
+      </div>
+  
+      <input type="password" class="name" placeholder="Password" name="pasw">
+      <div>
+        <p class="name-help">Please enter a strong password.</p>
+      </div>
+      <tr>
+                
+                
+                
+        <!-- <td class="form input ">Latitude</td> -->
+        <td class="form input "><input type="text" name="latitude" id="slati" placeholder="Latitude"  class="form-control"></td>	
+        <!-- <div>
+          <p class="name-help">Company proof files</p>
+        </div> -->
+        <tr align="center">
+        <td colspan="2"><a onclick="myFunction();"  class="btn btn-primary" required>View Map</a></td>
+        <td>
+          <div id="dvMap" style="width: 100px; height: 100px;"></div>
+        </td></tr>
+    </tr>
+    <tr>
+        <!-- <td class="form input">Longitude</td> -->
+        <td class="form input"><input type="text" placeholder="Longitude" name="longitude" id="elongi"  required  class="form-control"></td>	
+    </tr>
+     </table>
+  
+     
+  
+  
+      <input type="submit" class="submit" value="Register" name="submit">
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD3MPnSnyWwNmpnVEFkaddVvy_GWtxSejs&sensor=false"></script>
+<script type="text/javascript">
+// window.onload = function () {
+function myFunction() {
+var mapOptions = {
+center: new google.maps.LatLng(9.9763482, 76.286272),
+zoom: 14,
+mapTypeId: google.maps.MapTypeId.ROADMAP
+};
+var infoWindow = new google.maps.InfoWindow();
+var latlngbounds = new google.maps.LatLngBounds();
+var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+google.maps.event.addListener(map, 'click', function (e) {
+alert("Latitude: " + e.latLng.lat() + "\r\nLongitude: " + e.latLng.lng());
+document.getElementById('slati').value = e.latLng.lat();
+document.getElementById('elongi').value = e.latLng.lng();
+
+
+});
+}
+</script>
+
+<style>
+
+
+
+
+h1 {
+text-align: center;
+font-family: 'Oswald', sans-serif;
+font-size: 28px;
+margin-bottom: 30px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+width: 100%;
+padding: 10px;
+margin-bottom: 15px;
+border: none;
+border-radius: 5px;
+background-color: #555;
+color: #fff;
+}
+
+input[type="file"] {
+width: 100%;
+padding: 10px;
+margin-bottom: 15px;
+border: none;
+border-radius: 5px;
+background-color: #555;
+color: #fff;
+}
+
+.location-inputs {
+display: flex;
+justify-content: space-between;
+margin-bottom: 15px;
+}
+
+.location-inputs .form-group {
+flex: 1;
+margin-right: 10px;
+}
+
+label {
+display: block;
+margin-bottom: 5px;
+}
+
+.btn-primary {
+background-color: #007bff;
+color: #564949;
+border: none;
+border-radius: 5px;
+padding: 10px 20px;
+cursor: pointer;
+}
+
+.btn-primary:hover {
+background-color: #0056b3;
+}
+
+.name-help,
+.email-help {
+display: none;
+margin-top: 5px;
+}
+</style>
+
+{% include 'footer.html' %}
+
+
+

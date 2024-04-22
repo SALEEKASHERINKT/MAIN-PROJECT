@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(rgb(76, 2, 107),black);
+        }
+        h1{
+            text-align: center;
+            background-color: antiquewhite;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .box {
+            max-width: 600px;
+            padding: 20px;
+            background: rgb(2, 0, 0);
+            margin: 0 auto;
+            margin-top: 50px;
+            box-shadow: 4px 3px 5px rgb(181, 131, 40);
+            border-radius: 10px;
+        }
+
+        .small {
+            font-size: 20px;
+        }
+        .form_container{
+            margin: 2d0px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+            gap: 20px;
+        }
+        .form_control{
+            display: flex;
+            flex-direction: column;
+        }
+        label{
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+        input, select, textarea{
+            padding: 6px 10px;
+            border: 1px solid black;
+            border-radius: 4px;
+            font-size: 15px;
+        }
+        input:focus{
+            outline-color: red;
+        }
+        .button_container{
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+        button{
+            background-color: rgb(255, 198, 43);
+            border: transparent solid 5px;
+            padding: 5px 10px;
+            color: white;
+            border-radius: 8px;
+            transition: 0.3s ease-in;
+        }
+        button:hover{
+            background: rgb(134, 204, 230);
+            border: 4px solid rgb(0, 234, 255);
+            color: rgb(180, 64, 64);
+            transition: o.3s ease-out;
+            cursor: pointer;
+
+        }
+        .textarea_control{
+            grid-column: 0.5 / span 2;
+        }
+        .textarea_control textarea{
+            width: 100%;
+        }
+        @media(max-width: 460px){
+            .textarea_control{
+            grid-column: 1 / span 1;
+        } 
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <h1> Job Application</h1>
+            <form action="" method="post">
+                <div class="form_container">
+                    <div class="form_control">
+                        <label for="first_name">First Name</label>
+                        <input id="first_name" name="first_name" placeholder="Enter First Name">
+
+                    </div>
+                    <div class="form_control">
+                        <label for="last_name">Last Name</label>
+                        <input id="last_name" name="last_name" placeholder="Enter Last Name">
+
+                    </div>
+                    <div class="form_control">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter Email">
+
+                    </div>
+                    <!-- <div class="form_control">
+                        <label for="job_role">Job Role</label>
+                        <select id="job_role" name="job_role">
+                            <option value="">Select Job Role</option>
+                            <option value="frontend">Frontend Developer</option>
+                            <option value="full_stack">Full Stack Developer</option>
+                            <option value="backend">Backend Developer</option>
+                        </select>
+
+                    </div> -->
+                    <div class="textarea_control">
+                        <label for="address">Address</label>
+                        <textarea name="address" id="address" cols="50" row="4" placeholder="Enter address"></textarea>
+
+                    </div>
+                    <div class="form_control">
+                        <label for="city">Place</label>
+                        <input id="city" name="city" placeholder="Enter City Name">
+
+                    </div>
+                    <div class="form_control">
+                        <label for="pincode">Pincode</label>
+                        <input type="number" id="pincode" name="pincode" placeholder="Enter Pincode">
+
+                    </div>
+                    <div class="form_control">
+                        <label for="email">Contact</label>
+                        <input type="text" id="contact" name="phn" placeholder="Enter Contact details">
+
+                    </div>
+                    <div class="form_control">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" name="date" placeholder="dd/mm/yyyy">
+
+                    </div>
+                </div>
+                <div class="button_container">
+                    <button type="submit" name="submit">Apply Now</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+{%include 'footer.html'%}

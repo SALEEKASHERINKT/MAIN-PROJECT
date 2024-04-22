@@ -1,0 +1,298 @@
+
+{%include 'homeheader.html'%}
+
+	<!-- CC slider Wrapper Start -->
+  <div class="cc_slider_main_wrapper">
+		<div class="cc_slider_overlay"></div>
+		<div class="jp_slider_shape_img">
+			<img src="static/images/header_shape.png" alt="shape">
+		</div>
+		<div class="cc_slider_img_section">
+			<div class="owl-carousel owl-theme">
+				<div class="item cc_main_slide1">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                <div class="login-box">
+                  <br><br>
+                  <h2>Login</h2>
+                  <form method="post">
+                    <div class="user-box">
+                      <input type="text" name="uname" required="">
+                      <label>Username</label>
+                    </div>
+                    <div class="user-box">
+                      <input type="password" name="pasw" required="">
+                      <label>Password</label>
+                    </div>
+                    <a href="#">
+                      
+                    </a>
+                    <!-- <input class="login-box a" type="submit" name="submit" value="Submit"> -->
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+              
+                    <button  style="background-color: #141e30;margin-left: 50px;" name="submit">Submit</button>
+                    
+              
+                  </form>
+                  <br><br>
+                </div>
+                <br><br><br><br><br><br><br><br><br><br>
+              
+							</div>
+							<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+								<div class="jp_slider_img">
+									<img src="static/images/slider_img.png" alt="img">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- CC slider Wrapper End --> 
+
+
+
+
+
+
+
+
+
+
+ <!-- <section id="hero">
+    <div class="hero-container" data-aos="fade-up" data-aos-delay="150"> 
+  
+    <form method="post" style="margin-top: 80px; padding: 50px;">
+        <h1 align="center" style="font-size: 35px; color: rgba(246, 242, 5, 0.99);">LOGIN</h1>
+        <table align="center">
+            <tr>
+                <th style="font-size: 25px; color: rgba(76, 211, 18, 0.861); padding: 10px;">User Name:</th>
+                <td><input type="text" name="uname" class="form-control" style="border: solid 2px lightblue ;"></td>
+            </tr>
+            <tr>
+                <th style="font-size: 25px; color: rgba(76, 211, 18, 0.861); padding: 10px;">Password:</th>
+                <td><input type="password" name="pasw" class="form-control" style="border: solid 2px lightblue ;"></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2"><input type="submit" value="submit" name="submit" class="btn btn-info" style="margin-top: 20px;"></td>
+            </tr>
+        </table>
+    </form>
+
+</div>
+</section>
+
+ -->
+
+ 
+
+
+
+<style>
+    html {
+  height: 750px;
+}
+body {
+  margin:0;
+  padding:0;
+  font-family: sans-serif;
+  background: linear-gradient(#141e30, #243b55);
+}
+
+.login-box {
+  position: absolute;
+  margin-top: 100px;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+.login-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+  
+}
+.login-box button{
+
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.login-box button:hover{
+
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
+
+}
+
+.login-box a:hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
+}
+
+.login-box a span {
+  position: absolute;
+  display: block;
+}
+
+.login-box a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+.login-box a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+.login-box a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+.login-box a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+
+</style>
+
+
+{%include 'footer.html'%}

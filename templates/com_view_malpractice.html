@@ -1,0 +1,61 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for i in data['view'] %}
+    <img src="/static/malpractice/{{ i['image'] }}" alt="">
+    <br>
+    <h5>{{ i['fname'] }} {{ i['lname'] }}</h5>
+    <p>Date : {{ i['date'] }} , Time : {{ i['time'] }}</p>
+    {% endfor %}
+</body>
+</html> -->
+{%include 'companyhomeheader.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     
+        .card {
+            background-color: #000;
+            color: #fff;
+            border: 2px solid #fff;
+            padding: 20px;
+            margin: 20px;
+            max-width: 400px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        h5, p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <br><br><br>
+    <div class="row">
+        {% for i in data['view'] %}
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <img class="card-img-top" src="/static/malpractice/{{ i['image'] }}" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">{{ i['fname'] }} {{ i['lname'] }}</h5>
+                    <p class="card-text">Date: {{ i['date'] }}, Time: {{ i['time'] }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    {%include 'footer.html'%}
+

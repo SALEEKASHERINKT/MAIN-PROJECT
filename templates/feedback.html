@@ -1,0 +1,58 @@
+{%include 'userhomeheader.html'%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+</head>
+<!-- <body style="background-image: url(https://media.istockphoto.com/id/1185404528/photo/shifting-the-focus-to-all-things-business.jpg?s=612x612&w=0&k=20&c=TZCcT4jVPGcVjgxoxD-AvsmEq-Q5-iFv39GVKBMacEI=); background-repeat: no-repeat; background-size: cover ;"> -->
+   <body >
+    <center>
+       <br><br> <h1>Do you like to share your experience ?</h1>
+        <br><br><br>
+        <table >
+        <form  method="post">
+        <tr>
+            <th>Company</th>
+            <td>
+                <select name="cid" id="" class="form-control">
+                    {%for i in data['view']%}
+                    <option value="{{i['company_id']}}">{{i['company_name']}}</option>
+                    {%endfor%}
+                </select>
+            </td>
+        </tr>
+            <tr>
+                <th>Feedback</th>
+                <td><textarea name="feedback" class="form-control" cols="30" rows="5"></textarea></td>
+            </tr>
+          
+            <tr>
+               <td colspan="2" style="text-align:center;"><input type="submit" class="btn btn-info" value="submit" name="submit"></td>
+            </tr>
+        
+    </form>
+</table>
+
+<table>
+    <tr>
+        
+        <th>Feedback</th>
+        <th>Company</th>
+        <th>Date</th>
+    </tr>
+    {%for i in data['data']%}
+    <tr>
+     
+        <td>{{i['feedback']}}</td>
+        <td>{{i['company_name']}}</td>
+        <td>{{i['date']}}</td>
+    </tr>
+    {%endfor%}
+</table>
+</center>
+{%include 'footer.html' %}

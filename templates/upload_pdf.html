@@ -1,0 +1,59 @@
+
+
+
+<!-- {%if data['job']%}
+
+<form action="" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td><input type="file" name="file" placeholder="upload file"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" name="submit"></td>
+        </tr>
+
+
+    </table>
+</form> -->
+
+
+{%include 'userhomeheader.html'%}
+
+
+<center>
+	<form method="post">
+		<h1>VIEW JOBS</h1>
+		<div style="display: flex; flex-wrap: wrap; gap: 20px;">
+			{% for row in data['job'] %}
+				<div style="width: 300px; border: 1px solid #ccc; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+					<div style="padding: 15px;">
+						<h5 style="font-size: 1.2rem; font-weight: bold;">Company: {{ row['company_name'] }}</h5>
+						<p style="margin-bottom: 10px;">Job: {{ row['title'] }}</p>
+						<p style="margin-bottom: 10px;">Details: {{ row['details'] }}</p>
+						<p style="margin-bottom: 10px;">Requirements: {{ row['qualification'] }}</p>
+						<p style="margin-bottom: 10px;">Last Date: {{ row['last_date'] }}</p>
+					</div>
+					<a href="usersendapplication?job_id={{ row['job_id'] }}&company_id={{ row['company_id'] }}" style="display: block; width: 100%; padding: 10px; text-align: center; background-color: #28a745; color: #fff; text-decoration: none; border-radius: 4px; transition: background-color 0.3s;" class="btn btn-success">SENT APPLICATION</a>
+				</div>
+			{% endfor %}
+		</div>
+	</form>
+	
+</center>
+
+
+<!-- {%else%}
+<form action="" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td><input type="file" name="file" placeholder="upload file"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" name="submit"></td>
+        </tr>
+
+
+    </table>
+</form>
+{%endif%} -->
+{%include 'footer.html'%}

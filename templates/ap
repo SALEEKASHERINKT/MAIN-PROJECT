@@ -1,0 +1,66 @@
+ <!-- {%include 'testpage.html'%}
+<body>
+    <br><br><br><center>
+        <h1 >You can add questions here</h1>
+        <table >
+        <form method="post">
+        
+           <tr>
+            <th> Select test type :</th>
+            <td>
+                <select name="experience_type">
+                    {%for i in data['value']%}
+
+                    <option value="{{i['experience_type_id']}}">{{i['experience_type']}}</option>
+                    {%endfor%}
+
+                </select>
+            </td>
+           </tr>
+           <tr>
+            <th> Select job role:</th>
+            <td>
+                <select name="job_role">
+                    {%for i in data['key']%}
+
+                    <option value="{{i['job_role_id']}}">{{i['job_role_title']}}</option>
+                    {%endfor%}
+
+                </select>
+            </td>
+           </tr>
+           <tr>
+            <th>Enter Question</th>
+            <td>
+                <input type="text" name="ques" size="50"  placeholder="Enter Question">
+            </td>
+           </tr>
+           <tr>
+            <th>Option 1</th>
+            <td><input type="text" name="opt1" size="30"  placeholder="Option 1"></td>
+           </tr>
+           <tr>
+            <th>Option 2</th>
+            <td><input type="text" name="opt2" size="30"  placeholder="Option 2"></td>
+           </tr>
+           <tr>
+            <th>Option 3</th>
+            <td><input type="text" name="opt3" size="30"  placeholder="Option 3"></td>
+           </tr>
+           <tr>
+            <th>Option 4</th>
+            <td><input type="text" name="opt4" size="30"  placeholder="Option 4"></td>
+           </tr>
+           <tr>
+            <th> Correct option</th>
+            <td><input type="text" name="crt_opt" size="30"  placeholder="Correct Option"></td>
+           </tr>
+           <tr>
+          <td colspan="2" style="text-align:center;"><input type="submit" value="submit" name="submit"></td>
+           </tr>
+        
+    </form>
+</table>
+</center>
+</body>
+</html>-->

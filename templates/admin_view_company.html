@@ -1,0 +1,103 @@
+
+{% include 'adminhomeheader.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card View</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+        background-color: #222222; /* Dark background color */
+        color: #fff; /* Light text color */
+    }
+
+    .card {
+      margin: 10px;
+      background-color: #0b0b0b; /* Dark card background color */
+      color: #fff; /* Light text color */
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-header {
+      background-color: #555; /* Dark header background color */
+      padding: 10px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .btn-success {
+      background-color: #4CAF50; /* Green */
+      border: none;
+    }
+
+    .btn-success:hover {
+      background-color: #45a049; /* Darker green on hover */
+    }
+
+    .btn-danger {
+      background-color: #f44336; /* Red */
+      border: none;
+    }
+
+    .btn-danger:hover {
+      background-color: #d32f2f; /* Darker red on hover */
+    }
+
+    .badge-success {
+      background-color: #4CAF50; /* Green */
+      color: #fff; /* White text */
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body style="background-color: dimgrey;">
+
+  <div class="container" style="margin-top: 100px;">
+    <div class="row">
+      {% for i in data['key'] %}
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-header">
+              {{i['company_name']}} 
+            </div>
+            <div class="card-body">
+              <p><strong>License:</strong> <img src="{{i['license_no']}}" alt="license" width="100px" height="100px"><a href="{{i['license_no']}}" download="">download</a></p>
+              <p><strong>Place:</strong> {{i['place']}}</p>
+              <p><strong>Contact:</strong> {{i['phone']}}</p>
+              <p><strong>Email:</strong> {{i['email']}}</p>
+              <p><strong>Established Year:</strong> {{i['est_year']}}</p>
+              {% if i['usertype'] == 'pending' %}
+                <a class="btn btn-success" href="/admin_approve_company?id={{i['login_id']}}">Approve</a>
+                <a class="btn btn-danger" href="?action=reject&id={{i['login_id']}}">Reject</a>
+              {% else %}
+                <span class="badge badge-success">Approved</span>
+                <a  href="/admin_view_job?id={{i['login_id']}}" class="btn btn-info">Jobs</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+{%include 'footer.html'%}
+
+

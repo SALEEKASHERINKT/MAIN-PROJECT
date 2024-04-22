@@ -1,0 +1,150 @@
+
+{%include 'userhomeheader.html'%}
+
+<style>
+    table {
+        width: 80%;
+        margin: 0 auto;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 10px;
+        border: 1px solid #ccc;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    input[type="radio"] {
+        margin-right: 5px;
+    }
+    input[type="submit"] {
+        padding: 10px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {%if data['res1']%}
+
+    <form method="post">
+        <table>
+            {% for row in data['res1'] %}
+            <div class="col-lg-10  portfolio-item filter-app">
+                <tr>
+                    <td>{{ loop.index }}&nbsp;&nbsp;{{ row['question'] }}</td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;&nbsp;<input type="radio" name="ans{{ loop.index }}" value="{{ row['option1'] }}" required>{{ row['option1'] }}&nbsp;
+                        <input type="radio" name="ans{{ loop.index }}" value="{{ row['option2'] }}" required>{{ row['option2'] }}&nbsp;
+                        <input type="radio" name="ans{{ loop.index }}" value="{{ row['option3'] }}" required>{{ row['option3'] }}&nbsp;
+                        <input type="radio" name="ans{{ loop.index }}" value="{{ row['option4'] }}" required>{{ row['option4'] }}&nbsp;
+                    </td>
+                </tr>
+            </div>
+            {% endfor %}
+            <tr>
+                <div class="col-lg-10  portfolio-item filter-app">
+                    <td></td>
+                    {% if data['res1'] %}
+                    <td><input type="submit" name="answer" value="submit" class="btn btn-primary"></td>
+                    {% endif %}
+                </div>
+            </tr>
+        </table>
+    </form>
+    
+    
+    
+    {%else%}
+    <form method="post">
+            
+      <table>
+        <tr>
+            <th> Select experience type :</th>
+            <td>
+                <select name="etype">
+                    {%for i in data['key']%}
+       
+                    <option value="{{i['experience_type_id']}}">{{i['experience_type']}}</option>
+                    {%endfor%}
+       
+                </select>
+            </td>
+           </tr>
+       
+           <tr>
+            <th> Select job role :</th>
+            <td>
+                <select name="jrole">
+                    {%for i in data['job']%}
+       
+                    <option value="{{i['job_role_id']}}">{{i['job_role_title']}}</option>
+                    {%endfor%}
+       
+                </select>
+            </td>
+           </tr>
+           <tr>
+            <td><input type="submit" name="submit" id=""></td>
+           </tr>
+      </table>
+    </form>
+    
+    {%endif%}
+    
+    
+
+
+<!-- <form method="post">
+    <table>
+        <thead>
+            <tr>
+                <th colspan="4" style="text-align: center;">Question Paper</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data['res1'] %}
+            <tr>
+                <td colspan="4" style="padding: 10px;">
+                    <strong>{{ loop.index }}. {{ row['question'] }}</strong>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" style="padding: 10px;">
+                    <input type="radio" name="ans{{ loop.index }}" value="{{ row['option1'] }}"> {{ row['option1'] }}<br>
+                    <input type="radio" name="ans{{ loop.index }}" value="{{ row['option2'] }}"> {{ row['option2'] }}<br>
+                    <input type="radio" name="ans{{ loop.index }}" value="{{ row['option3'] }}"> {{ row['option3'] }}<br>
+                    <input type="radio" name="ans{{ loop.index }}" value="{{ row['option4'] }}"> {{ row['option4'] }}
+                </td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="4" style="text-align: center; padding: 20px;">
+                    <input type="submit" name="answer" value="Submit">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form> -->
+
+{%include 'footer.html'%}
+

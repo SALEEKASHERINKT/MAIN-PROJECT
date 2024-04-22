@@ -1,0 +1,247 @@
+{%include 'companyhomeheader.html'%}
+
+
+<body>
+    <center>
+        <br><br><br><br><br>
+        <div class="container">
+            <form method="post">
+                <div class="card form-card">
+                    <div class="card-body">
+                        <h1><b>MANAGE JOB</b></h1>
+                        
+                        {% if data['job_up'] %}
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Job Title" name="job" required="" value="{{ data['job_up'][0]['title'] }}">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="qualification" name="req" required="" value="{{ data['job_up'][0]['qualification'] }}">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Details" name="det" required="" value="{{ data['job_up'][0]['details'] }}">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Job Location" name="loc" required="" value="{{ data['job_up'][0]['job_location'] }}">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="date" class="form-control" placeholder="Last Date" name="date" value="{{ data['job_up'][0]['last_date'] }}">
+                                </div>
+                                <div class="text-center">
+                                    <input type="submit" class="btn btn-success" name="updatez" value="UPDATE">
+                                </div>
+                            </div>
+                        </div>
+
+                        {% else %}
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Job" name="job" required="">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="qualification" name="req" required="">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Details" name="det" required="">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Job Location" name="loc" required="">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="date" class="form-control" placeholder="Last Date" name="date">
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-info" name="submit">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                        <br><br>
+
+                        {% endif %}
+                        <!-- {% if data['job'] %}
+                        <br><br>
+
+                        <h1>REGISTERED JOBS</h1>
+                        <br><br>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>SNO</th>
+                                            <th>JOB TITLE</th>
+                                            <th>QUALIFICATION</th>
+                                            <th>DETAILS</th>
+                                            <th>LAST DATE</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for row in data['job'] %}
+                                        <tr>
+                                            <td>{{ loop.index }}</td>
+                                            <td>{{ row['title'] }}</td>
+                                            <td>{{ row['qualification'] }}</td>
+                                            <td>{{ row['details'] }}</td>
+                                            <td>{{ row['last_date'] }}</td>
+                                            <td class="btn-action">
+                                                <a class="btn btn-info" href="?action=delete&id={{ row['job_id'] }}">DELETE</a>
+                                                <a class="btn btn-success" href="?action=update&id={{ row['job_id'] }}">UPDATE</a>
+                                                <a class="btn btn-warning" href="company_View_application?jid={{ row['job_id'] }}">VIEW APPLICATION</a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        {% endif %}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </center>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+<head> -->
+    <!-- <style>
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+        .form-card {
+            background-color: #000;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 20px;
+        }
+        .form-control {
+            background-color: #000;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .btn {
+            background-color: #000;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            color: #fff;
+        }
+        th, td {
+            border: 1px solid #fff;
+            padding: 8px;
+        }
+        th {
+            background-color: #0d0d0d;
+        }
+        td {
+            background-color: #0c0909;
+        }
+    </style> -->
+                        {% if data['job'] %}
+                        <!-- <br><br> -->
+
+                        <h1>REGISTERED JOBS</h1>
+                        <br><br>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>SNO</th>
+                                            <th>JOB TITLE</th>
+                                            <th>QUALIFICATION</th>
+                                            <th>DETAILS</th>
+                                            <th>LAST DATE</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for row in data['job'] %}
+                                        <tr>
+                                            <td>{{ loop.index }}</td>
+                                            <td>{{ row['title'] }}</td>
+                                            <td>{{ row['qualification'] }}</td>
+                                            <td>{{ row['details'] }}</td>
+                                            <td>{{ row['last_date'] }}</td>
+                                            <td class="btn-action">
+                                                <a href="?action=delete&id={{ row['job_id'] }}" class="btn btn-info">DELETE</a>
+                                                <a href="?action=update&id={{ row['job_id'] }}" class="btn btn-primary">UPDATE</a>
+                                                <a href="company_View_application?jid={{ row['job_id'] }}" class="btn btn-warning">VIEW APPLICATION</a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        {% endif %}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </center>
+
+    <style>
+     
+        .form-card {
+            background-color: #aaa8a8;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 20px;
+        }
+        .form-control {
+            background-color: #bdbcbc;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .btn {
+            background-color: #000;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #fff;
+            padding: 8px;
+        }
+        th {
+            background-color: #e0dbdb;
+        }
+        td {
+            background-color: #dcd9d9;
+        }
+    </style>
+{% include 'footer.html' %}
+

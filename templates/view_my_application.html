@@ -1,0 +1,115 @@
+{%include 'userhomeheader.html' %}
+    <style>
+        /* Dark theme styles */
+       
+
+       
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #444;
+        }
+
+        th {
+            background-color: #555;
+        }
+
+        tr:nth-child(even) {
+            background-color: #444;
+        }
+
+        tr:hover {
+            background-color: #555;
+        }
+
+        h3 {
+            text-align: center;
+            margin-top: 20px;
+            color: #f90;
+            font-size: 24px;
+        }
+
+        /* Link style */
+        a {
+            color: #f90;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ff0;
+        }
+    </style>
+</head>
+<body>
+
+
+    {% if data['key'] %}
+        <table>
+            <tr>
+                <th>Job</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            {% for i in data['key'] %}
+                <tr>
+                    <td>{{ i['title'] }}</td>
+                    <td>{{ i['req_status'] }}</td>
+                    {% if i['req_status'] == 'accept' %}
+                        <td>
+                            <!-- <a href="/start_test?rid={{ i['request_id'] }}&cid={{ i['company_id'] }}&jid={{ i['job_id'] }}&aid={{ i['answer_id'] }}">Start</a> -->
+                             <a href="/instruction?rid={{ i['request_id'] }}&cid={{ i['company_id'] }}&jid={{ i['job_id'] }}&aid={{ i['answer_id'] }}">Start Test</a> 
+                        </td>
+                        {% elif i['req_status'] == 'pending' %}
+                        <td>Applied</td>
+                        {% elif i['req_status'] == 'selected' %}
+                        <td>Congrats Dear....</td>
+
+
+                        
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <h3>No Applications</h3>
+    {% endif %}  
+
+    
+    <!-- <table>
+    <tr>
+        <th>
+            request_id
+        </th>
+        <th>job</th>
+        <th>request_status</th>
+        
+    </tr>
+    {%for i in data['view']%}
+    <tr>
+        <td>{{i['request_id']}}</td>
+        <td>{{i['title']}}</td>
+        <td>{{i['req_status']}}</td>
+        {% if i['req_status'] == 'accept' %}
+        <td><a href="/instruction?rid={{ i['request_id'] }}&cid={{ i['company_id'] }}&jid={{ i['job_id'] }}&aid={{ i['answer_id'] }}">Start Test</a></td>
+        {% elif i['req_status'] == 'exam attended' %}
+        <td><a href="/user_view_mark_details?rid={{i['request_id']}}">View Mark</a></td>
+        {% elif i['req_status'] == 'proceed to selection' %}
+        <td><a href="/user_view_mark_details?rid={{i['request_id']}}">View Mark</a></td>
+
+        {%endif%}
+
+    </tr>
+    {%endfor%}
+
+</table></center>
+</body>
+</html> -->
+{% include 'footer.html' %}
